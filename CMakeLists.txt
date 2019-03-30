@@ -13,12 +13,15 @@ if(NOT COMMAND add_llvm_loadable_module)
         find_package(LLVM REQUIRED CONFIG)
 
         if (LLVM_SRC)
+            message(STATUS "1:${LLVM_SRC}/include")
             include_directories(${LLVM_SRC}/include)
         else()
             message(FATAL_ERROR "LLVM_SRC is not set")
         endif()
 
         if (LLVM_OBJ)
+            message(STATUS "2:${LLVM_OBJ}/lib")
+            message(STATUS "3:${LLVM_OBJ}/include")
             link_directories(${LLVM_OBJ}/lib)
             include_directories("${LLVM_OBJ}/include")
         else()
@@ -30,6 +33,8 @@ if(NOT COMMAND add_llvm_loadable_module)
 
         add_definitions(${LLVM_DEFINITIONS})
         include_directories(${LLVM_INCLUDE_DIRS})
+        message(STATUS "4:${LLVM_INCLUDE_DIRS}")
+        message(STATUS "5:${LLVM_DEFINITIONS}")
 
     else()
         message(FATAL_ERROR "\

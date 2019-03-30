@@ -143,12 +143,12 @@ void CHGraph::buildCHG(s32_t libnum, unique_ptr<Module> *libmodules,
         Module *m = libmodules[i].get();
         if (m == NULL)
             continue;
-        DBOUT(DGENERAL, outs() << analysisUtil::pasMsg("construct CHGraph From lib " + m->getName().str() + " [" + to_string(i+1) + " of " + to_string(libnum) + "]...\n"));
+        DBOUT(DGENERAL, outs() << analysisUtil::pasMsg("construct CHGraph From lib " + m->getModuleIdentifier() + " [" + to_string(i+1) + " of " + to_string(libnum) + "]...\n"));
         constructCHGraphFromIR(*m);
     }
 
     /// build ch on the target module
-    DBOUT(DGENERAL, outs() << analysisUtil::pasMsg("construct CHGraph From IR " + M.getName().str() + "...\n"));
+    DBOUT(DGENERAL, outs() << analysisUtil::pasMsg("construct CHGraph From IR " + M.getModuleIdentifier() + "...\n"));
     constructCHGraphFromIR(M);
 
     DBOUT(DGENERAL, outs() << analysisUtil::pasMsg("build Internal Maps ...\n"));
@@ -163,7 +163,7 @@ void CHGraph::buildCHG(const Module &M) {
     double timeStart, timeEnd;
     timeStart = CLOCK_IN_MS();
 
-    DBOUT(DGENERAL, outs() << analysisUtil::pasMsg("construct CHGraph From IR " + M.getName().str() + "...\n"));
+    DBOUT(DGENERAL, outs() << analysisUtil::pasMsg("construct CHGraph From IR " + M.getModuleIdentifier() + "...\n"));
     constructCHGraphFromIR(M);
 
     DBOUT(DGENERAL, outs() << analysisUtil::pasMsg("build Internal Maps ...\n"));
