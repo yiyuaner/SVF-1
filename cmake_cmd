@@ -1,0 +1,2 @@
+export LLVM_DIR=/home/guoyiyuan/SymbolicExecution/llvm3.4/build/share/llvm/cmake 
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DLLVM_DIR=/home/guoyiyuan/SymbolicExecution/llvm3.4/build/share/llvm/cmake -DLLVM_SRC=~/SymbolicExecution/llvm3.4/llvm-3.4/ -DLLVM_OBJ=~/SymbolicExecution/llvm3.4/build -DCMAKE_BUILD_TYPE:STRING=Debug ../SVF-1/
